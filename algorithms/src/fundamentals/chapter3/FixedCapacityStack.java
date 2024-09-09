@@ -11,10 +11,13 @@ package fundamentals.chapter3;
 public class FixedCapacityStack {
     private final String[] entries;
     private int size;
+    private final int maxSize;
 
     public FixedCapacityStack(int size) {
         if (size <= 0) throw new IllegalArgumentException();
+
         entries = new String[size];
+        this.maxSize = size;
     }
 
     private void push(String v) {
@@ -36,6 +39,6 @@ public class FixedCapacityStack {
     }
 
     private boolean isFull() {
-        return size == entries.length;
+        return maxSize == entries.length;
     }
 }
